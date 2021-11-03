@@ -5,6 +5,7 @@ module.exports = new Command({
     description: 'hello world',
     userPermissions: ['ADMINISTRATOR'],
     run: async({ interaction }) => {
+        await interaction.deferReply();
         interaction.followUp({content: "hello world!"});
     }
 });
