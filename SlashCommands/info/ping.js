@@ -1,16 +1,10 @@
-const { Client, CommandInteraction } = require("discord.js");
+const { Command } = require("reconlx");
 
-module.exports = {
+module.exports = new Command({
     name: "ping",
     description: "returns websocket ping",
-    type: 'CHAT_INPUT',
-    /**
-     *
-     * @param {Client} client
-     * @param {CommandInteraction} interaction
-     * @param {String[]} args
-     */
-    run: async (client, interaction, args) => {
+    run: async ({client, interaction}) => {
+        await interaction.deferReply();
         interaction.followUp({ content: `${client.ws.ping}ms!` });
     },
-};
+});
