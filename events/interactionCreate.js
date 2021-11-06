@@ -26,6 +26,6 @@ client.on("interactionCreate", async (interaction) => {
     if (interaction.isContextMenu()) {
         await interaction.deferReply({ ephemeral: false });
         const command = client.slashCommands.get(interaction.commandName);
-        if (command) command.run(client, interaction);
+        if (command) command.run({client, interaction});
     }
 });
